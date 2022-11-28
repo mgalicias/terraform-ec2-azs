@@ -3,7 +3,7 @@ variable "ec2_region" {
   type = map(string)
   default = {
     "ohio" = "us-east-2",
-    "virgina" = "us-east-1"
+    "virginia" = "us-east-1"
   }
 }
 

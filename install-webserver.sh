@@ -1,5 +1,7 @@
 #!/bin/bash
 sudo yum -y update
-sudo yum -y install httpd git
-sudo git clone https://github.com/mgalicias/terraform-ec2-azs.git /var/www/html/
+sudo yum -y install httpd
+sudo cat << EOF > /var/www/html/index.html
+  <h1> CEO Marco Aurelio Galicia Salgado </h1>
+EOF
 sudo systemctl enable --now httpd

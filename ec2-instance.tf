@@ -5,9 +5,9 @@ resource "aws_instance" "ec2_instance" {
   vpc_security_group_ids = [ aws_security_group.allow_web.id ]
   for_each = toset(keys({
     for i,azs in data.aws_ec2_instance_type_offerings.ec2_type_offerings: 
-      i => azs.instance_types if lenght(azs.instance_types) != 0
+      i => azs.instance_types if length(azs.instance_types) != 0
   }))
-
+  availability_zone = each.key
   tags = {
     "Name" = "ec2-test-${each.value}"
   }
